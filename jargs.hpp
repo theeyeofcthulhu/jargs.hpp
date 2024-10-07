@@ -129,7 +129,7 @@ class Parser {
 public:
     void add(Flag f);
     void add_help(std::string_view usage);
-    void parse(int argc, char **argv);
+    void parse(int argc, const char *const *argv);
 private:
     std::vector<Flag> flags;
 
@@ -161,7 +161,7 @@ void Parser::add_help(std::string_view usage)
     }});
 }
 
-void Parser::parse(int argc, char **argv)
+void Parser::parse(int argc, const char *const *argv)
 {
     for (int i = 1; i < argc; i++) {
         std::string_view arg = argv[i];
